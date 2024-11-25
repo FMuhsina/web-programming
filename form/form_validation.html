@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<script src="validation.js"></script>
+		<style>
+        body {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            margin: 0;
+        }
+        fieldset {
+            font-size: 20px;
+            width: 70%;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        input[type="text"], input[type="email"], input[type="password"], input[type="tel"], textarea, button {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
+    <title>Sign Up Form</title>
+	</head>
+	<body>
+		<form id="signupForm">
+			<fieldset>
+				<legend><h1>SIGN UP</h1></legend>
+				<label>First Name :</label><br>
+				<input type="text" id="first_name" required><br>
+				<label>Last Name :</label><br>
+				<input type="text" id="last_name" required><br>
+				<label>Address :</label><br>
+				<textarea id="Address" required cols="50"></textarea><br>
+				<label>Gender :</label><br>
+				<input type="radio" value="Male" name="gender" required>
+				<label for="Male">Male</label>
+				<input type="radio" value="Female" name="gender" required>
+				<label for="Female">Female</label>
+				<input type="radio" value="Others" name="gender" required>
+				<label for="Others">Others</label><br>
+				<label>E-mail :</label><br>
+				<input type="email" id="email" required><br>
+				<label>Mobile Number :</label><br>
+				<input type="tel" id="phone" required><br>
+				<label>Username :</label><br>
+				<input type="text" id="username" required><br>
+				<label>Set Password :</label><br>
+				<input type="password" id="password" required><br>
+				<label>Confirm Password :</label><br>
+				<input type="password" id="confirm_password" required><br><br><br>
+				<center><button type="submit" style="background-color:#4D600E;" onclick="return validate_form()">Sign Up</button></center>
+			</fieldset>
+		</form>
+	</body>
+</html>
