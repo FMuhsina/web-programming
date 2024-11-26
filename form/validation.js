@@ -1,56 +1,79 @@
 function validate_form() {
-	// Prevent form submission for validation
-	event.preventDefault();
+    let valid = true;
 
-	// Get form values
-	var firstName = document.getElementById('first_name').value;
-	var lastName = document.getElementById('last_name').value;
-	var email = document.getElementById('email').value;
-	var phone = document.getElementById('phone').value;
-	var password = document.getElementById('password').value;
-	var confirmPassword = document.getElementById('confirm_password').value;
+    // Reset previous errors
+    resetErrors();
 
-	// 1. Validate First Name and Last Name (only alphabets)
-	var nameRegex = /^[A-Za-z]+$/;
-	if (!nameRegex.test(firstName)) {
-		alert("First Name must contain only alphabets.");
-		return false;
-	}
-	if (!nameRegex.test(lastName)) {
-		alert("Last Name must contain only alphabets.");
-		return false;
-	}
+    // First Name Validation (only alphabets and no spaces)
+    const firstName = document.getElementById('first_name');
+    if (!/^[a-zA-Z]+$/.test(firstName.value)) {
+        document.getElementById('first_name_error').textContent = "First name must contain only alphabets and no spaces.";
+        firstName.classList.add("highlight");
+        valid = false;
+    }
 
-	// 2. Validate Email
-	var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-	if (!emailRegex.test(email)) {
-		alert("Please enter a valid email address.");
-		return false;
-	}
+    // Last Name Validation (only alphabets and no spaces)
+    const lastName = document.getElementById('last_name');
+    if (!/^[a-zA-Z]+$/.test(lastName.value)) {
+        document.getElementById('last_name_error').textContent = "Last name must contain only alphabets and no spaces.";
+        lastName.classList.add("highlight");
+        valid = false;
+    }
 
-	// 3. Validate Mobile Number (only digits, 10 digits)
-	var phoneRegex = /^[0-9]{10}$/;
-	if (!phoneRegex.test(phone)) {
-		alert("Mobile number must be exactly 10 digits.");
-		return false;
-	}
+    // Email Validation (must contain @ and . with at least 3 characters after @ and 2 after .)
+    const email = document.getElementById('email');
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailPattern.test(email.value)) {
+        document.getElementById('email_error').textContent = "Email must contain '@' and '.' with valid characters after them.";
+        email.classList.add("highlight");
+        valid = false;
+    }
 
-	// 4. Validate Password (at least 1 uppercase letter, 1 special character, 1 number)
-	var passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-	if (!passwordRegex.test(password)) {
-		alert("Password must contain at least one capital letter, one special character, and one number.");
-		return false;
-	}
+    // Mobile Number Validation (must be 10 digits and only numbers)
+    const phone = document.getElementById('phone');
+    const phonePattern = /^\d{10}$/;
+    if (!phonePattern.test(phone.value)) {
+        document.getElementById('phone_error').textContent = "Mobile number must be exactly 10 digits.";
+        phone.classList.add("highlight");
+        valid = false;
+    }
 
-	// 5. Validate Confirm Password
-	if (password !== confirmPassword) {
-		alert("Password and Confirm Password do not match.");
-		return false;
-	}
+    // Password Validation (8 characters, at least 1 capital letter, 1 number, and 1 special character)
+    const password = document.getElementById('password');
+    const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+    if (!passwordPattern.test(password.value)) {
+        document.getElementById('password_error').textContent = "Password must contain at least 8 characters, including a capital letter, a number, and a special character.";
+        password.classList.add("highlight");
+        valid = false;
+    }
 
-	// If all validations pass
-	alert("Form submitted successfully!");
-	// You can submit the form here if needed
-	// e.g., document.getElementById('signupForm').submit();
-	return true;
+    // Confirm Password Validation (must match password)
+    const confirmPassword = document.getElementById('confirm_password');
+    if (confirmPassword.value !== password.value) {
+        document.getElementById('confirm_password_error').textContent = "Passwords do not match.";
+        confirmPassword.classList.add("highlight");
+        valid = false;
+    }
+
+    return valid;
 }
+
+function resetErrors() {
+    // Reset all error messages and remove highlight
+    const errors = document.querySelectorAll('.error');
+    errors.forEach(error => {
+        error.textContent = '';
+    });
+
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+        input.classList.remove("highlight");
+    });
+}
+
+// Optional: Focus on a field to display the error message immediately
+document.querySelectorAll('input, textarea').forEach(input => {
+    input.addEventListener('focus', function() {
+        resetErrors();
+    });
+});
