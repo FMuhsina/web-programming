@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Change Background Color</title>
+</head>
+<body id="body">
+    <br><br><br><br><br><br>
+    <center>
+    <h1><b>CLICK THE BUTTON TO CHANGE BACKGROUND COLOUR:</b></h1>
+    <button style="height:60px; width:300px; " onclick="changeBg()"><h1>Change Colour</h1></button>
+    </center>
+    <script>
+        var i = 0;
+        function changeBg() 
+        {
+            const colors = ["#8ba888", "#ffc765", "#b16373", "#898fbd", "#a52a2a", "#415e9a",
+                            "#4da197", "#75675E", "#f1b2db", "#FF6666"];
+            document.body.style.background = colors[i];
+            i = (i + 1) % colors.length;
+        }
+    </script>
+</body>
+</html>
