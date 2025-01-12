@@ -1,2 +1,113 @@
 <html>
+<head>
+    <title>Student Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        fieldset {
+            max-width: 600px;
+            background: #ffffff;
+            border: 2px solid purple;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        legend {
+            font-size: 24px;
+            font-weight: bold;
+            color: purple;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            margin-right: 10px; /* Space between label and input */
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            background-color: purple;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<fieldset>
+    <legend>Student Registration Form</legend>
+    <form action="/submit" method="POST">
+        <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+        </div>
+        <div class="form-group">
+            <label>Gender:</label>
+            <label><input type="radio" name="gender" value="male" required> Male</label>
+            <label><input type="radio" name="gender" value="female" required> Female</label>
+            <label><input type="radio" name="gender" value="other" required> Other</label>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}">
+        </div>
+        <div class="form-group">
+            <label for="state">course:</label>
+            <select id="state" name="state" required>
+                <option value="" disabled selected>Select your state</option>
+                <option value="bca/bsc"> BCA/Bsc</option>
+                <option value="btech"> Btech</option>
+                <option value="mca/msc"> MCA/Msc</option>
+                <option value="mtech"> Mtech</option>
+                <option value="others"> Others</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>programming skills :</label><br><br>
+            <label><input type="checkbox" name="languages" value="python"> Python</label><br>
+            <label><input type="checkbox" name="languages" value="flutter"> Flutter</label><br>
+            <label><input type="checkbox" name="languages" value="mern"> MERN</label><br>
+            <label><input type="checkbox" name="languages" value="mean"> MEAN</label><br>
+            <label><input type="checkbox" name="languages" value="other"> Other</label>
+        </div>
+        <input type="submit" value="Register">
+    </form>
+</fieldset>
+
+</body>
 </html>
