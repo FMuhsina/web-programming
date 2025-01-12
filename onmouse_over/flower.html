@@ -1,0 +1,111 @@
+<html>
+<head>
+    <title>Flower Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            align-items: center;
+            display: block;
+        }
+        h1 {
+            font-size: 45px;
+            margin-bottom: 30px;
+        }
+        .card {
+            width: 300px;
+            padding: 20px;
+            height: auto;
+            margin: 15px;
+            background-color: lightpink;
+            border: 1px solid pink;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+        }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .card h3 {
+            margin-top: 10px;
+            font-size: 30px;
+        }
+        .card p {
+            margin: 10px 0;
+            line-height: 1.5;
+            font-size: 18px;
+            text-align: justify;
+        }
+        .details {
+            display: none;
+            height:300px;
+            width:300px; 
+            margin-top: 10px;
+            text-align: center;
+        }
+        .details img {
+            width: 90%;
+            height: 80%;
+            border-radius: 8px;
+        }
+        .details p {
+            margin-top: 10px;
+            font-size: 16px;
+            font-style: italic;
+            color: darkslategray;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>Flowers</h1></center>
+    <div class="card-container">
+        <div class="card" onmouseover="showDetails(this)" onmouseout="hideDetails(this)">
+            <h3>Rose</h3>
+            <p>The rose is a popular flower known for its vibrant colors and sweet fragrance. 
+               It comes in shades like red, pink, white, and yellow. 
+               Roses are often considered a symbol of love and romance.</p>
+            <div class="details">
+                <img src="assets/roses.jpg" alt="Rose">
+                <p>Scientific Name: Rosa</p>
+            </div>
+        </div>
+
+        <div class="card" onmouseover="showDetails(this)" onmouseout="hideDetails(this)">
+            <h3>Lotus</h3>
+            <p>The lotus is a sacred flower often associated with purity and spiritual enlightenment. 
+               It thrives in aquatic environments, blooming in colors like pink and white. </p>
+            <div class="details">
+                <img src="assets/lotus.jpg" alt="Lotus">
+                <p>Scientific Name: Nelumbo nucifera</p>
+            </div>
+        </div>
+
+        <div class="card" onmouseover="showDetails(this)" onmouseout="hideDetails(this)">
+            <h3>Tulip</h3>
+            <p>The tulip is a graceful flower often associated with love and renewal.
+                It thrives in temperate climates, blooming in a variety of colors like red, yellow, and purple. </p>
+            <div class="details">
+                <img src="assets/tulips.jpg" alt="Tulips">
+                <p>Scientific Name:  Tulipa</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to show details (image and scientific name) when mouse hovers
+        function showDetails(card) {
+            const details = card.querySelector('.details');
+            details.style.display = 'block'; // Make the details visible
+        }
+
+        // Function to hide details when mouse leaves
+        function hideDetails(card) {
+            const details = card.querySelector('.details');
+            details.style.display = 'none'; // Hide the details
+        }
+    </script>
+</body>
+</html>
