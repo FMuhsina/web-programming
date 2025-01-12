@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>String and Math</title>
+    <style>
+        
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color:paleturquoise; height:100%; width:45%; margin:15px; 
+                float:left; padding: 20px;">
+            <h1>String Handling Functions</h1>
+            <center>
+            <fieldset style="width:50%;">
+                <h3>Enter a string:</h3>
+                <input type="text" id="string"><br><br>
+                <button onclick="stringfun()">submit</button>
+            </fieldset>
+            </center>
+            <br><br><br><br><br><br>
+            <p id="stroutput"></p>
+    </div>
+    <div style="background-color:palegoldenrod;  height:100%; width:45%; margin:15px; float:right; padding: 20px;">
+            <h1 >Math Functions</h1>
+            <center>
+            <fieldset style="width:50%;">
+                <h3>Enter a Number:</h3>
+                <input type="number" id="Number"><br><br>
+                <button onclick="mathfun()">submit</button>
+            </fieldset>
+            </center>
+        <br><br><br><br><br><br>
+        <p id="mathoutput"></p>
+    </div>
+    <script>
+        function mathfun()
+        {
+            var num=document.getElementById('Number').value;
+            document.getElementById('mathoutput').innerHTML=
+                "square root of "+num+" = "+Math.sqrt(num)+"<br>"+
+                "cube root of "+num+" = "+Math.cbrt(num)+"<br>"+
+                "ceil of "+num+" = "+Math.ceil(num)+"<br>"+
+                "cube of "+num+" = "+Math.pow(num,3)+"<br>"; 
+        }
+        function stringfun()
+        {
+            var str=document.getElementById('string').value;
+            var rplc_all=str.replaceAll("A","@");
+            rplc_all=str.replaceAll("a","@");                           
+            document.getElementById('stroutput').innerHTML=
+                "Length of String ="+str.length+"<br>"+
+                "String in Uppercase ="+str.toUpperCase()+"<br>"+
+                "String in Lowercase ="+str.toLowerCase()+"<br>"+
+                "String after replacing all A,a with @ ="+rplc_all+"<br>";
+        }
+    </script>
+</body>
+</html>
