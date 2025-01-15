@@ -1,8 +1,0 @@
-integers=list(map(int,input("Enter integers of list seperated by space : ").split()))
-print("Entered list :",integers)
-print("Maximum value in the list :",max(integers))
-print("Minimum value in the list :",min(integers))
-print("Length of the list :",len(integers))
-print("Sum of values in the list :",sum(integers))
-print("List in sorted order:",integers.sort(integers))
-print("List in reverse order:",integers.reverse(integers))
